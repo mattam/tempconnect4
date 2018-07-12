@@ -7,9 +7,20 @@ import Cell from '../cells'
 class Column extends Component {
   render() {
     return (
-      <div onClick={() => this.props.handleMove(this.props.id)}>
+      <div
+        onClick={() => this.props.handleMove(this.props.id)}
+        onMouseOver={() => this.props.handleMouseOver(this.props.id)}
+        onMouseOut={() => this.props.handleMouseOut(this.props.id)}
+      >
         {this.props.cells.map(cell => {
-          return <Cell key={cell.id} id={cell.id} state={cell.state} />
+          return (
+            <Cell
+              key={cell.id}
+              id={cell.id}
+              state={cell.state}
+              hoverState={cell.hoverState}
+            />
+          )
         })}
       </div>
     )
